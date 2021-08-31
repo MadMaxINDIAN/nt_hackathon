@@ -29,4 +29,23 @@ router.get("/general/:ticker/:interval", (req, res) => {
     });
 })
 
+// URL: /:ticker/:interval
+router.get("/general/:ticker", (req, res) => {
+    const { ticker } = req.params;
+    return res.json({
+        status: true,
+        message: "Successfull",
+        data: fsm.commonInterval(ticker,"all")
+    });
+})
+
+// URL: /:ticker/:interval
+router.get("/tickers", (req, res) => {
+    return res.json({
+        status: true,
+        message: "Successfull",
+        data: fsm.ticker()
+    });
+})
+
 module.exports = router;

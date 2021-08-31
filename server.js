@@ -20,6 +20,6 @@ const routes = require("./web_service");
 app.use("/", routes);
 
 // APP LISTENING
-app.listen(3000, "127.0.0.1", (req, res) => {
-	console.log(`Server is running on ${"127.0.0.1"}:${3000}`);
+app.listen(5000, "127.0.0.1", (req, res) => {
+	console.log(`Server is running on ${"127.0.0.1"}:${5000}`);
 });

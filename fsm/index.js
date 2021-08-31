@@ -37,7 +37,7 @@ exports.customInterval = (ticker, from, to) => {
 
 exports.commonInterval = (ticker, timeInterval) => {
     const data = reader();
-    const ds = {}
+    const ds = {};
     for (let key in data) {
         if (ds[data[key].symbol]){
             ds[data[key].symbol].push(OHLC(data[key]))
@@ -64,3 +64,16 @@ exports.commonInterval = (ticker, timeInterval) => {
         return "Invalid Timeinterval"
     }
 };
+
+exports.ticker = () => {
+    const data = reader();
+    const ds = [];
+    for (let key in data) {
+        if (ds.findIndex(d => data[key].symbol === d) >= 0){
+            continue;
+        } else {
+            ds.push(data[key].symbol);
+        }
+    }
+    return ds;
+}
